@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.tedu.store.mapper.AccountMapper">
+
+	<select id="select1" resultType="java.lang.Integer">
+	select
+	money
+	from
+	account
+	where
+	id="10001";
+	
+	</select>
+	<select id="select2" resultType="java.lang.Integer">
+	select
+	money
+	from
+	account
+	where
+	id="10002";
+	</select>
+	
+	<update id="update1">
+	update account
+	set
+	money=#{money}
+	where
+	id=#{id1}
+	
+	</update>
+	<update id="update2">
+	update account
+	set
+	money=#{money}
+	where
+	id=#{id2}
+	
+	</update>
+	
+
+
+
+
+
+</mapper>
+
+
+
+
+
+

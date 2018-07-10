@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.tedu.store.mapper.GoodsMapper">
+
+	<select id="selectByIdCacategoryId" resultType="cn.tedu.store.bean.Goods">
+
+		select
+		id,
+		category_id categoryId,
+		item_type itemType,
+		title,
+		sell_point sellPoint,
+		price,
+		num,
+		barcode,
+		image,
+		status,
+		priority ,
+		created_time
+		createdTime,
+		modified_time modifiedTime,
+		created_user createdUser,
+		modified_user
+		modifiedUser
+		from
+		t_goods
+		where
+		category_id=#{categoryId}
+		and
+		num>0
+		and
+		status=1
+		order by
+		priority desc
+		limit #{offset},#{count}
+
+	</select>
+
+	<!-- 完成查询商品表的数量 -->
+	<select id="selectCount" resultType="java.lang.Integer">
+		select
+		count(*)
+		from
+		t_goods
+		where
+		category_id=#{categoryId}
+
+
+	</select>
+	<!-- 根据id查询商品 -->
+	<select id="selectGoodById" resultType="cn.tedu.store.bean.Goods">
+		select
+		id,
+		category_id categoryId,
+		item_type itemType,
+		title,
+		sell_point sellPoint,
+		price,
+		num,
+		barcode,
+		image,
+		status,
+		priority ,
+		created_time
+		createdTime,
+		modified_time modifiedTime,
+		created_user createdUser,
+		modified_user
+		modifiedUser
+		from
+		t_goods
+		where
+		id=#{id}
+
+	</select>
+
+
+
+
+
+</mapper>
+
+
+
+
+
+

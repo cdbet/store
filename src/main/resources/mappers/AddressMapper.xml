@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.tedu.store.mapper.AddressMapper">
+
+	<insert id="insertAddress" parameterType="cn.tedu.store.bean.Address">
+		insert into
+		t_address(
+		uid,
+		recv_name,
+		recv_province,
+		recv_city,
+		recv_area,
+		recv_address,
+		recv_distric,
+		recv_phone,
+		recv_tel,
+		recv_zip,
+		recv_tag,
+		is_default,
+		created_user,
+		created_time,
+		modified_user,
+		modified_time
+		)values(
+		#{uid},
+		#{recvName},
+		#{recvProvince},
+		#{recvCity},
+		#{recvArea},
+		#{recvAddress},
+		#{recvDistric},
+		#{recvPhone},
+		#{recvTel},
+		#{recvZip},
+		#{recvTag},
+		#{isDefault},
+		#{createdUser},
+		#{createdTime},
+		#{modifiedUser},
+		#{modifiedTime}
+		);
+
+
+	</insert>
+	<select id="selectByUid" resultType="cn.tedu.store.bean.Address">
+		select
+		id,
+		uid,
+		recv_name
+		recvName,
+		recv_province recvProvince,
+		recv_city recvCity,
+		recv_area
+		recvArea,
+		recv_address recvAddress,
+		recv_distric recvDistric,
+		recv_phone
+		recvPhone,
+		recv_tel recvTel,
+		recv_zip recvZip,
+		recv_tag recvTag,
+		is_default isDefault,
+		created_user createdUser,
+		created_time
+		createdTime,
+		modified_user modifiedUser,
+		modified_time modifiedTime
+		from
+		t_address
+		where
+		uid=#{uid};
+	</select>
+	<update id="setCancel">
+		update
+		t_address
+		set
+		is_default=0
+		where
+		uid=#{uid};
+
+	</update>
+	<update id="setDefault">
+		update
+		t_address
+		set
+		is_default=1
+		where
+		id=#{id};
+
+
+	</update>
+	<!-- 根据id查询收货地址 -->
+	<select id="selectById" resultType="cn.tedu.store.bean.Address">
+		select
+		id,
+		uid,
+		recv_name
+		recvName,
+		recv_province recvProvince,
+		recv_city recvCity,
+		recv_area
+		recvArea,
+		recv_address recvAddress,
+		recv_distric recvDistric,
+		recv_phone
+		recvPhone,
+		recv_tel recvTel,
+		recv_zip recvZip,
+		recv_tag
+		recvTag,
+		is_default isDefault,
+		created_user createdUser,
+		created_time
+		createdTime,
+		modified_user modifiedUser,
+		modified_time modifiedTime
+		from
+		t_address
+		where
+		id=#{id};
+
+
+	</select>
+	<update id="updateAddressById" parameterType="cn.tedu.store.bean.Address">
+		update
+		t_address
+		set	
+		recv_name=#{recvName},
+		recv_province=#{recvProvince},
+		recv_city=#{recvCity},
+		recv_area=#{recvArea},
+		recv_address=#{recvAddress},
+		recv_distric=#{recvDistric},
+		recv_phone=#{recvPhone},
+		recv_tel=#{recvTel},
+		recv_zip=#{recvZip},
+		recv_tag=#{recvTag}
+		where
+		id=#{id}
+
+
+
+
+	</update>
+	
+	<delete id="deleteById">
+	delete
+	from
+	t_address
+	where
+	id=#{id}
+	</delete>
+
+
+
+
+
+
+
+</mapper>
+
+
+
+
+
+
